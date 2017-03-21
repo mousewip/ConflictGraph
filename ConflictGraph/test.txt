@@ -1,0 +1,22 @@
+﻿Is Conflict Serializable
+
+
+R1(X), R2(X), R2(Y), W2(Y), R1(Y), W1(X)
+w1(A), w1(B), w2(A), w2(B), w3(B)
+r1(A), w1(A), r2(A), w2(A), r2(B), w2(B)
+r2(A), w2(A), r2(B), w2(B), r1(A), w1(A)
+R1(X1), R1(X2), W2(X3), R1(X1), R1(X2), R1(X3) 
+R1(A), R2(A), R3(B), W1(A), R2(C), R2(B), W2(B), W1(C)
+R1(A), W1(A), R2(A), W2(A), R1(B), W1(B), R2(B), W2(B)
+w1(A), r2(A), w1(B), w3(C), r2(C), r4(B), w2(D), w4(E), r5(D), w5(E)
+R2(A), W2(A), R3(C), W2(B), W3(A), W3(C), R1(A), R1(B), W1(A), W1(B)
+R3(y), R3(z), R1(x), W1(x), W3(y), W3(z), R2(z), R1(y), W1(Y), R2(y), W2(y)
+R2(X), R1(Y), R1(Z), R5(V), R5(W), R5(W), R2(Y), W2(Y), W3(Z),R1(U), R4(Y), W4(Y), R4(Z), W4(Z), R1(U), W1(U)
+
+
+Is Not Conflict Serializable
+r1(A), w2(A), w1(A), w3(A)
+w1(A), w2(A), w2(B), w1(B), w3(B)
+R1(X), R1(Y), R2(X), R2(Y), W2(Y), W1(X)
+R2(A), R1(B), W2(A), R2(B), R3(A), W1(B), W3(A), W2(B)
+R2(A), R3(C), W3(A), W2(A), W2(B), W3(C), R1(A), R1(B), W1(A), W1(B)
